@@ -6,32 +6,17 @@ class TransactionContainer extends Component {
     super(props);
     this.state = {
       data: props.data,
-      itemsToShow: 5,
-      expanded: false,
       inputValue: ''
     }
     this.handleChange = this.handleChange.bind(this);
-    this.showMore = this.showMore.bind(this);
   }
 
   handleChange(event) {
     this.setState({ inputValue: event.target.value });
   }
 
-  showMore() {
-    this.state.itemsToShow === 5
-    ? (this.setState({
-        itemsToShow: this.state.data.length,
-        expanded: true
-      }))
-    : (this.setState({
-        itemsToShow: 5,
-        expanded: false
-      }))
-  }
-
   render() {
-    const { data, inputValue, expanded, itemsToShow } = this.state;
+    const { data, inputValue } = this.state;
     const filteredTransactions = data.filter(item =>
       item.description.match(inputValue));
 
@@ -40,15 +25,7 @@ class TransactionContainer extends Component {
         <label>Search your transactions</label>
         <input type="text" name="input" value={this.state.inputValue} onChange={this.handleChange} />
 
-        <button onClick={this.showMore}>
-          {
-            expanded
-            ? (<span>Show less</span>)
-            : (<span>Show more</span>)
-          }
-        </button>
-
-        <table>
+        {/* <table>
           <thead>
             <tr>
               <th>Date</th>
@@ -58,18 +35,18 @@ class TransactionContainer extends Component {
               <th>Amount</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody> */}
             {
               inputValue
-                ? filteredTransactions.map((item, i) => (
-                  <TransactionItem item={item} key={i}/>
-                ))
-                : data && data.slice(0, itemsToShow).map((item, i) => (
-                  <TransactionItem item={item} key={i} />
-                ))
+                // ? filteredTransactions.map((item, i) => (
+                ?  <TransactionItem item={filteredTransactions} />
+                // ))
+                // : data && data.slice(0, itemsToShow).map((item, i) => (
+                 : <TransactionItem item={data && data} />
+                // ))
             }
-          </tbody>
-        </table>
+          {/* </tbody>
+        </table> */}
       </div>
     )
   }

@@ -11,6 +11,8 @@ class App extends Component {
       isLoaded: false,
       data: []
     }
+    this.formatDate = this.formatDate.bind(this);
+    this.formatAmount = this.formatAmount.bind(this);
     this.calculateBalance = this.calculateBalance.bind(this);
   }
 
@@ -24,9 +26,35 @@ class App extends Component {
         });
       },
       (error) => {
-        console.error(error)
+        console.error(`Something's Wrong!: `, error)
       }
     )
+  }
+
+  formatDate(data) {
+    let options = {
+      weekday: 'long',
+      month: 'short',
+      year: 'numeric',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric'
+    },
+    intlDate = new Intl.DateTimeFormat( undefined, options );
+    return data.map(each => {
+      let timeStamp = each.transTime/1000;
+      return each.transTime = intlDate.format( new Date( 1000 * timeStamp ) )
+    })
+  }
+
+  formatAmount(data) {
+    return data.map(each => {
+      return each.transAmt = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+      }).format(each.transAmt)
+    })
   }
 
   calculateBalance(data) {
@@ -40,10 +68,15 @@ class App extends Component {
   render() {
     const { isLoaded, data } = this.state;
     const calculateBalance = this.calculateBalance;
+    const formatDate = this.formatDate;
+    const formatAmount = this.formatAmount;
+
     if (!isLoaded) {
       return <div>Loading...</div>
     } else {
-      let totalBalance = calculateBalance(data)
+      let totalBalance = calculateBalance(data);
+      formatDate(data);
+      formatAmount(data);
       return (
         <div>
           <Balance balance={totalBalance} />
