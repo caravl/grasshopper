@@ -31,9 +31,9 @@ class App extends Component {
 
   calculateBalance(data) {
     let balance = 0;
-    data.map(item => {
-      balance += item.transAmt;
-    })
+    data.map(item => (
+      balance += item.transAmt
+    ));
     return balance;
   }
 

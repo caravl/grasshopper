@@ -19,30 +19,36 @@ class TransactionContainer extends Component {
     const { data, inputValue } = this.state;
     const filteredTransactions = data.filter(item =>
       item.description.match(inputValue));
-      console.log('filtered: ', filteredTransactions);
-      return (
-        <div>
-          <label>Search your transactions</label>
-          <input type="text" name="input" value={this.state.inputValue} onChange={this.handleChange} />
+    return (
+      <div>
+        <label>Search your transactions</label>
+        <input type="text" name="input" value={this.state.inputValue} onChange={this.handleChange} />
 
-          <ul>
-
-            {
-              inputValue
-                ? filteredTransactions.map((item, i) => (
-                  <TransactionItem item={item} key={i}/>
-                ))
-                : data && data.map((item, i) => (
-                  <TransactionItem item={item} key={i}/>
-                ))
-            }
-
-
-          </ul>
-        </div>
-      )
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Description</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+          {
+            inputValue
+              ? filteredTransactions.map((item, i) => (
+                <TransactionItem item={item} key={i}/>
+              ))
+              : data && data.map((item, i) => (
+                <TransactionItem item={item} key={i}/>
+              ))
+          }
+          </tbody>
+        </table>
+      </div>
+    )
   }
-
 }
 
 export default TransactionContainer;

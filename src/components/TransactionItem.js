@@ -2,12 +2,25 @@ import React from 'react';
 
 export default function TransactionItem (props) {
   const item = props.item;
+
   return (
-    <div>
-      <li>Date: {item.transTime},
-        Amount: {item.transAmt},
-        Description: {item.description}
-      </li>
-    </div>
+    <tr key={item.transId}>
+      <td>
+        {
+          new Date(item.transTime).toLocaleDateString()
+        }
+      </td>
+      <td>{item.transFrom}</td>
+      <td>{item.transTo}</td>
+      <td>{item.description}</td>
+      <td>
+        {
+          new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD'
+          }).format(item.transAmt)
+        }
+      </td>
+    </tr>
   );
 }
