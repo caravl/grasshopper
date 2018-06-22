@@ -4,6 +4,7 @@ export default function TransactionItem (props) {
   const item = props.item;
 
   return (
+
     <tr key={item.transId}>
       <td>
         {
