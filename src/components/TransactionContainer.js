@@ -17,18 +17,27 @@ class TransactionContainer extends Component {
 
   render() {
     const { data, inputValue } = this.state;
-    const filteredTransactions;
+    const filteredTransactions = data.filter(item =>
+      item.description.match(inputValue));
+      console.log('filtered: ', filteredTransactions);
       return (
         <div>
           <label>Search your transactions</label>
           <input type="text" name="input" value={this.state.inputValue} onChange={this.handleChange} />
-          {/* conditionally render search results or all transactions */}
+
           <ul>
+
             {
-              data && data.map((item, i) => (
-                <TransactionItem item={item} key={i}/>
-              ))
+              inputValue
+                ? filteredTransactions.map((item, i) => (
+                  <TransactionItem item={item} key={i}/>
+                ))
+                : data && data.map((item, i) => (
+                  <TransactionItem item={item} key={i}/>
+                ))
             }
+
+
           </ul>
         </div>
       )
