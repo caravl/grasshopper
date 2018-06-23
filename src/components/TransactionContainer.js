@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TransactionItem from '../components/TransactionItem';
+import { Panel, Table } from 'react-bootstrap';
 
 class TransactionContainer extends Component {
   constructor(props) {
@@ -22,10 +23,16 @@ class TransactionContainer extends Component {
 
     return (
       <div>
-        <label>Search your transactions</label>
-        <input type="text" name="input" value={this.state.inputValue} onChange={this.handleChange} />
+        <Panel>
+          <Panel.Heading>
+            <Panel.Title componentClass="h3">Search Your Transactions</Panel.Title>
+          </Panel.Heading>
+          <Panel.Body>
+            <input type="text" name="input" value={this.state.inputValue} onChange={this.handleChange} />
+          </Panel.Body>
+        </Panel>
 
-        {/* <table>
+        <Table responsive>
           <thead>
             <tr>
               <th>Date</th>
@@ -35,18 +42,18 @@ class TransactionContainer extends Component {
               <th>Amount</th>
             </tr>
           </thead>
-          <tbody> */}
+          <tbody>
             {
               inputValue
-                // ? filteredTransactions.map((item, i) => (
-                ?  <TransactionItem item={filteredTransactions} />
-                // ))
-                // : data && data.slice(0, itemsToShow).map((item, i) => (
-                 : <TransactionItem item={data && data} />
-                // ))
+                ? filteredTransactions.map((item, i) => (
+               <TransactionItem item={item} />
+                ))
+                : data && data.map((item, i) => (
+                 <TransactionItem item={item} key={i}/>
+                ))
             }
-          {/* </tbody>
-        </table> */}
+          </tbody>
+        </Table>
       </div>
     )
   }

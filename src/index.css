@@ -1,5 +1,19 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 2em;
+  padding: 0 1em;
 }
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.glyphicon {
+  font-size: 2em;
+  color: rgb(125, 224, 224);
+  padding: 1em;
+}
+
