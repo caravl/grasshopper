@@ -3,6 +3,7 @@ import { PageHeader, Panel } from 'react-bootstrap';
 
 export default function Balance (props) {
   const balance = props.balance;
+
   return (
     <div className="balance-container">
       <PageHeader className="text-center">

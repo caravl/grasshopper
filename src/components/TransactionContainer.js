@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TransactionItem from '../components/TransactionItem';
-import { Panel, Table } from 'react-bootstrap';
+import { Panel } from 'react-bootstrap';
 
 class TransactionContainer extends Component {
   constructor(props) {
@@ -18,8 +18,9 @@ class TransactionContainer extends Component {
 
   render() {
     const { data, inputValue } = this.state;
-    const filteredTransactions = data.filter(item =>
-      item.description.match(inputValue));
+    const filteredTransactions = data.filter(item => (
+      item.transTime.match(inputValue) || item.transFrom.match(inputValue) || item.transTo.match(inputValue) || item.description.match(inputValue) || item.transAmt.match(inputValue)
+    ));
 
     return (
       <div>
@@ -32,28 +33,11 @@ class TransactionContainer extends Component {
           </Panel.Body>
         </Panel>
 
-        <Table responsive>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>From</th>
-              <th>To</th>
-              <th>Description</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              inputValue
-                ? filteredTransactions.map((item, i) => (
-               <TransactionItem item={item} />
-                ))
-                : data && data.map((item, i) => (
-                 <TransactionItem item={item} key={i}/>
-                ))
-            }
-          </tbody>
-        </Table>
+        {
+          inputValue
+            ? <TransactionItem data={filteredTransactions} />
+            : <TransactionItem data={data} />
+        }
       </div>
     )
   }

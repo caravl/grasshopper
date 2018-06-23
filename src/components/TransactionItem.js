@@ -1,15 +1,29 @@
 import React from 'react';
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
 export default function TransactionItem (props) {
-  let item = props.item;
+  let data = props.data;
+
+  const options = {
+    sizePerPageList: [{
+      text: '5', value: 5
+    }, {
+      text: '10', value: 10
+    }, {
+      text: 'All', value: data.length
+    }],
+    sizePerPage: 5
+  };
 
   return (
-    <tr>
-      <td>{item.transTime}</td>
-      <td>{item.transFrom}</td>
-      <td>{item.transTo}</td>
-      <td>{item.description}</td>
-      <td>{item.transAmt}</td>
-    </tr>
+    <div>
+      <BootstrapTable data={ data } pagination={ true } options={ options }>
+        <TableHeaderColumn dataField="transTime" isKey>Date</TableHeaderColumn>
+        <TableHeaderColumn dataField="transFrom">From</TableHeaderColumn>
+        <TableHeaderColumn dataField="transTo">To</TableHeaderColumn>
+        <TableHeaderColumn dataField="description">Description</TableHeaderColumn>
+        <TableHeaderColumn dataField="transAmt">Amount</TableHeaderColumn>
+      </BootstrapTable>
+    </div>
   )
 }

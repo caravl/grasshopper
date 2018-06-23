@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import TransactionContainer from './components/TransactionContainer';
 import Balance from './components/Balance';
-// import { ButtonToolbar, Button, Glyphicon } from 'react-bootstrap';
 
 class App extends Component {
-
   constructor() {
     super();
     this.state = {
