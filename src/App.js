@@ -50,10 +50,10 @@ class App extends Component {
 
   formatAmount(data) {
     return data.map(each => {
-      return each.column = new Intl.NumberFormat('en-US', {
+      return each.transAmt = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD'
-      }).format(each.column)
+      }).format(each.transAmt)
     });
   }
 
