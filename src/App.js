@@ -13,6 +13,7 @@ class App extends Component {
     this.formatDate = this.formatDate.bind(this);
     this.formatAmount = this.formatAmount.bind(this);
     this.calculateBalance = this.calculateBalance.bind(this);
+    this.historyOfBalance = this.historyOfBalance.bind(this);
   }
 
   componentDidMount() {
@@ -44,16 +45,16 @@ class App extends Component {
     return data.map(each => {
       let timeStamp = each.transTime/1000;
       return each.transTime = intlDate.format( new Date( 1000 * timeStamp ) )
-    })
+    });
   }
 
   formatAmount(data) {
     return data.map(each => {
-      return each.transAmt = new Intl.NumberFormat('en-US', {
+      return each.column = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD'
-      }).format(each.transAmt)
-    })
+      }).format(each.column)
+    });
   }
 
   calculateBalance(data) {
@@ -64,18 +65,34 @@ class App extends Component {
     return balance;
   }
 
+  historyOfBalance(data) {
+    data = data.reverse();
+    data[0].historyOfBalance = data[0].transAmt;
+    for (let i = 1; i < data.length; i++) {
+      data[i].historyOfBalance = (+(data[i-1].historyOfBalance) + +(data[i].transAmt)).toFixed(2)
+    }
+    data.map(each => {
+      return each.historyOfBalance = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+      }).format(each.historyOfBalance)
+    })
+    data = data.reverse();
+  }
+
   render() {
     const { isLoaded, data } = this.state;
     const calculateBalance = this.calculateBalance;
     const formatDate = this.formatDate;
     const formatAmount = this.formatAmount;
-
+    const historyOfBalance = this.historyOfBalance;
     if (!isLoaded) {
       return <div>Loading...</div>
     } else {
       let totalBalance = calculateBalance(data);
-      formatDate(data);
+      historyOfBalance(data, totalBalance);
       formatAmount(data);
+      formatDate(data);
       return (
         <div className="main-container">
           <Balance balance={totalBalance} />

@@ -18,11 +18,12 @@ export default function TransactionItem (props) {
   return (
     <div>
       <BootstrapTable data={ data } pagination={ true } options={ options }>
-        <TableHeaderColumn dataField="transTime" isKey>Date</TableHeaderColumn>
-        <TableHeaderColumn dataField="transFrom">From</TableHeaderColumn>
-        <TableHeaderColumn dataField="transTo">To</TableHeaderColumn>
-        <TableHeaderColumn dataField="description">Description</TableHeaderColumn>
-        <TableHeaderColumn dataField="transAmt">Amount</TableHeaderColumn>
+        <TableHeaderColumn dataField="transTime" isKey dataSort>Date</TableHeaderColumn>
+        <TableHeaderColumn dataField="transFrom" dataSort>From</TableHeaderColumn>
+        <TableHeaderColumn dataField="transTo" dataSort>To</TableHeaderColumn>
+        <TableHeaderColumn dataField="description" dataSort>Description</TableHeaderColumn>
+        <TableHeaderColumn dataField="transAmt" dataSort>Amount</TableHeaderColumn>
+        <TableHeaderColumn dataField="historyOfBalance" dataSort>Balance</TableHeaderColumn>
       </BootstrapTable>
     </div>
   )
