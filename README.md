@@ -40,8 +40,8 @@ npm test
 ## Built With
 
 * [Create React App](https://github.com/facebookincubator/create-react-app) - The web framework used
-* [React-Bootstrap](https://maven.apache.org/) - Front end framework
-* [React-Bootstrap-Table](http://allenfang.github.io/react-bootstrap-table/index.html) - Framework to render table in components
+* [React-Bootstrap](https://maven.apache.org/) - The front end framework used
+* [React-Bootstrap-Table](http://allenfang.github.io/react-bootstrap-table/index.html) - The library used to render tables
 
 ## Author
 
