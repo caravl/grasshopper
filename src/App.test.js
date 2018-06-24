@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
-global.fetch = require('jest-fetch-mock');
 
 describe('App Component', () => {
 

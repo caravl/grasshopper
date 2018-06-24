@@ -18,7 +18,7 @@ class TransactionContainer extends Component {
 
   render() {
     const { data, inputValue } = this.state;
-    const filteredTransactions = data.filter(item => (
+    const filteredTransactions = data && data.filter(item => (
       item.transTime.match(inputValue) || item.transFrom.match(inputValue) || item.transTo.match(inputValue) || item.description.match(inputValue) || item.transAmt.match(inputValue)
     ));
 
@@ -26,10 +26,10 @@ class TransactionContainer extends Component {
       <div className="transContainer-container">
         <Panel>
           <Panel.Heading>
-            <Panel.Title id="search" componentClass="h3">Search Your Transactions</Panel.Title>
+            <Panel.Title id="search" >Search Your Transactions</Panel.Title>
           </Panel.Heading>
           <Panel.Body>
-            <input type="text" name="input" value={this.state.inputValue} onChange={this.handleChange} />
+            <input id="input" type="text" name="input" value={this.state.inputValue} onChange={this.handleChange} />
           </Panel.Body>
         </Panel>
 

@@ -86,6 +86,7 @@ class App extends Component {
     const formatDate = this.formatDate;
     const formatAmount = this.formatAmount;
     const historyOfBalance = this.historyOfBalance;
+    console.log('*******', data)
     if (!isLoaded) {
       return <div>Loading...</div>
     } else {
