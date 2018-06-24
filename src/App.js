@@ -26,7 +26,7 @@ class App extends Component {
         });
       },
       (error) => {
-        console.error(`Something's Wrong!: `, error)
+        console.error(`Something's Wrong!: `, error);
       }
     )
   }

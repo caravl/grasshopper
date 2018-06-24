@@ -6,12 +6,13 @@ export default function Balance (props) {
 
   return (
     <div className="balance-container">
-      <PageHeader id="header"className="text-center">
-        Hello, Chris!
+      <PageHeader id="header" className="text-center">
+        <h1 id="greeting">Hello, Chris!</h1>
       </PageHeader>
       <Panel>
         <Panel.Heading>
-        <Panel.Title>Your Current Balance is:</Panel.Title>
+        <Panel.Title id="balance-title">Your Current Balance is:</Panel.Title>
+        </Panel.Heading>
         <Panel.Body id="balance">
             {
               new Intl.NumberFormat('en-US', {
@@ -20,7 +21,7 @@ export default function Balance (props) {
               }).format(balance)
             }
         </Panel.Body>
-        </Panel.Heading>
+
       </Panel>
     </div>
   );

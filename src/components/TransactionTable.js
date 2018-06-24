@@ -16,14 +16,14 @@ export default function TransactionItem (props) {
   };
 
   return (
-    <div>
+    <div className="table-container">
       <BootstrapTable data={ data } pagination={ true } options={ options }>
-        <TableHeaderColumn dataField="transTime" isKey dataSort width='200'>Date</TableHeaderColumn>
-        <TableHeaderColumn dataField="transFrom" dataSort width='250'>From</TableHeaderColumn>
-        <TableHeaderColumn dataField="transTo" dataSort width='250'>To</TableHeaderColumn>
-        <TableHeaderColumn dataField="description" dataSort width='350'>Description</TableHeaderColumn>
-        <TableHeaderColumn dataField="transAmt" dataSort width='225'>Amount</TableHeaderColumn>
-        <TableHeaderColumn dataField="historyOfBalance" dataSort width='225'>Balance</TableHeaderColumn>
+        <TableHeaderColumn id="date" dataField="transTime" isKey dataSort width='200'>Date</TableHeaderColumn>
+        <TableHeaderColumn id="from"dataField="transFrom" dataSort width='250'>From</TableHeaderColumn>
+        <TableHeaderColumn id="to"dataField="transTo" dataSort width='250'>To</TableHeaderColumn>
+        <TableHeaderColumn id="description"dataField="description" dataSort width='350'>Description</TableHeaderColumn>
+        <TableHeaderColumn id="amount"dataField="transAmt" dataSort width='225'>Amount</TableHeaderColumn>
+        <TableHeaderColumn id="balance"dataField="historyOfBalance" dataSort width='225'>Balance</TableHeaderColumn>
       </BootstrapTable>
     </div>
   )
