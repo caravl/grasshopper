@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
+import PropTypes from 'prop-types';
 import TransactionContainer from './components/TransactionContainer';
 import Balance from './components/Balance';
+import Footer from './components/Footer';
 
 class App extends Component {
   constructor() {
@@ -98,10 +100,17 @@ class App extends Component {
         <div className="main-container">
           <Balance balance={totalBalance} />
           <TransactionContainer data={data} />
+           <hr />
+          <Footer />
         </div>
       );
     }
   }
 }
+
+App.propTypes = {
+  isLoaded: PropTypes.bool,
+  data: PropTypes.array
+};
 
 export default App;

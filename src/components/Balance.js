@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { PageHeader, Panel } from 'react-bootstrap';
 
 export default function Balance (props) {
@@ -7,7 +8,7 @@ export default function Balance (props) {
   return (
     <div className="balance-container">
       <PageHeader id="header" className="text-center">
-        <h1 id="greeting">Hello, Chris!</h1>
+        Hello, Chris!
       </PageHeader>
       <Panel>
         <Panel.Heading>
@@ -26,3 +27,7 @@ export default function Balance (props) {
     </div>
   );
 }
+
+Balance.propTypes = {
+  balance: PropTypes.number
+};

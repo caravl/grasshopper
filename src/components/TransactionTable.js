@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
-export default function TransactionItem (props) {
+export default function TransactionTable (props) {
   let data = props.data;
 
   const options = {
@@ -28,3 +29,7 @@ export default function TransactionItem (props) {
     </div>
   )
 }
+
+TransactionTable.propTypes = {
+  data: PropTypes.array
+};

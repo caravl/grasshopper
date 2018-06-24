@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import TransactionTable from '../components/TransactionTable';
 import { Panel } from 'react-bootstrap';
 
@@ -42,5 +43,10 @@ class TransactionContainer extends Component {
     )
   }
 }
+
+TransactionContainer.propTypes = {
+  inputValue: PropTypes.string,
+  data: PropTypes.array
+};
 
 export default TransactionContainer;
