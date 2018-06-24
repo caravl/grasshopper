@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TransactionItem from '../components/TransactionItem';
+import TransactionTable from '../components/TransactionTable';
 import { Panel } from 'react-bootstrap';
 
 class TransactionContainer extends Component {
@@ -35,8 +35,8 @@ class TransactionContainer extends Component {
 
         {
           inputValue
-            ? <TransactionItem data={filteredTransactions} />
-            : <TransactionItem data={data} />
+            ? <TransactionTable data={filteredTransactions} />
+            : <TransactionTable data={data} />
         }
       </div>
     )

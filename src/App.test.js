@@ -1,9 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 import App from './App';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe('App Component', () => {
+
+  it('should render without throwing an error', () => {
+    expect(shallow(<App />).find('div.main-container').exists()).toBe(true)
+  });
+
+  it('should find a result via fetch', () => {
+    return fetch('http://technicalchallenge-env.tmqmrias2g.us-east-1.elasticbeanstalk.com/transaction/0')
+      .then(() => console.log('Successful Fetch'))
+      .catch((err) => console.log('Error!!!' + err));
+  });
+
 });

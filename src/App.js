@@ -77,7 +77,7 @@ class App extends Component {
       formatDate(data);
       formatAmount(data);
       return (
-        <div>
+        <div className="main-container">
           <Balance balance={totalBalance} />
           <TransactionContainer data={data} />
         </div>
