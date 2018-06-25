@@ -12,7 +12,7 @@ export default function Balance (props) {
       </PageHeader>
       <Panel>
         <Panel.Heading>
-        <Panel.Title id="balance-title">Your Current Balance is:</Panel.Title>
+          <Panel.Title id="balance-title">Your Current Balance is:</Panel.Title>
         </Panel.Heading>
         <Panel.Body id="balance">
             {
@@ -22,7 +22,6 @@ export default function Balance (props) {
               }).format(balance)
             }
         </Panel.Body>
-
       </Panel>
     </div>
   );
