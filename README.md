@@ -1,6 +1,6 @@
 # Grasshopper
 
-Grasshopper is a web app displaying a user's account information, such as their current balance, a history of transactions, as well as features giving a user the ability to search or sort their transactions.
+Grasshopper is a dashboard displaying a user's account information, such as their current balance, a history of transactions, as well as features giving a user the ability to search or sort their transactions.
 
 ## Getting Started
 
