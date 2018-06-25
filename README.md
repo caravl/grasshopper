@@ -10,7 +10,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 Clone this repository
 ```
-git clone https://github.com/caravl/vb.git
+git clone https://github.com/caravl/grasshopper.git
 ```
 
 Install all dependencies:
