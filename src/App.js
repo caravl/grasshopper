@@ -45,7 +45,7 @@ class App extends Component {
     },
     intlDate = new Intl.DateTimeFormat( undefined, options );
     return data.map(each => {
-      let timeStamp = each.transTime/1000;
+      let timeStamp = each.transTime / 1000;
       return each.transTime = intlDate.format( new Date( 1000 * timeStamp ) )
     });
   }
@@ -71,14 +71,14 @@ class App extends Component {
     data = data.reverse();
     data[0].historyOfBalance = data[0].transAmt;
     for (let i = 1; i < data.length; i++) {
-      data[i].historyOfBalance = (+(data[i-1].historyOfBalance) + +(data[i].transAmt)).toFixed(2)
+      data[i].historyOfBalance = (+(data[i-1].historyOfBalance) + +(data[i].transAmt)).toFixed(2);
     }
     data.map(each => {
       return each.historyOfBalance = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD'
       }).format(each.historyOfBalance)
-    })
+    });
     data = data.reverse();
   }
 

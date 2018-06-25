@@ -27,7 +27,7 @@ class TransactionContainer extends Component {
       <div className="transContainer-container">
         <Panel>
           <Panel.Heading>
-            <Panel.Title id="search" >Search Your Transactions</Panel.Title>
+            <Panel.Title id="search">Search Your Transactions</Panel.Title>
           </Panel.Heading>
           <Panel.Body>
             <input id="input" type="text" name="input" value={this.state.inputValue} onChange={this.handleChange} />
